@@ -102,6 +102,11 @@ function displayStates(membersList) {
 
   const searchByState = document.querySelector('#searchByState');
   searchByState.innerHTML += html;
+
+  const searchByStateParam = url.searchParams.get("searchByState");
+  if (searchByStateParam && searchByStateParam != '') {
+    searchByState.value = searchByStateParam.toUpperCase();
+  }
 }
   
 const houseMembers = [];
@@ -138,6 +143,8 @@ fetch('/senate/members', {
   .catch((err) => {
     console.log(err);
   });
+
+const url = new URL(window.location.href);
 
 const searchByNameInput = document.querySelector('#searchByName');
 const searchByChamberSelect = document.querySelector('#searchByChamber');
