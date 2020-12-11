@@ -215,7 +215,7 @@ body {
 }
 
 @media (max-width: 600px) {
-  .col-4 {
-    font-size: 12px;
+  .row.mt-5.mb-5 {
+    font-size: 0.75rem;
   }
 }
