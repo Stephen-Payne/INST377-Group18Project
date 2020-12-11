@@ -9,6 +9,22 @@ body {
   background-color: #ebebeb;
 }
 
+.footer {
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.searchForm {
+  background-color: #0b2c57;
+  background-image: url('../images/bgFind.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  min-width: 220px;
+  min-height: 90px;
+  padding: 5px;
+  font-size: 0.7rem;
+}
+
 .page-header {
   text-transform: uppercase;
 }
@@ -95,11 +111,11 @@ body {
 ------------------------- */
 
 .featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  margin: 1rem 0; /* Space out the Bootstrap <hr> more */
 }
 /* Thin out the marketing headings */
 .featurette-heading {
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -.05rem;
 }
@@ -147,14 +163,14 @@ body {
   }
 
   .featurette-heading {
-    font-size: 50px;
+    font-size: 30px;
   }
 
 }
 
 @media (min-width: 62em) {
   .featurette-heading {
-    margin-top: 7rem;
+    margin-top: 3rem;
   }
 }
 
