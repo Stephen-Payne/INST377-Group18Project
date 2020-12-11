@@ -215,7 +215,15 @@ body {
 }
 
 @media (max-width: 600px) {
-  .row.mt-5.mb-5 {
+  h5.text-uppercase {
+    font-size: 0.75rem;
+  }
+
+  h6.text-uppercase {
+    font-size: 0.75rem;
+  }
+
+  h3 {
     font-size: 0.75rem;
   }
 }
