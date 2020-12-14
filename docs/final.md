@@ -46,7 +46,7 @@ The main technological library we used was Bootstrap. This provided a framework 
 
 ## Challenges
 
-
+There were a few challenges faced when working with our project. Our chosen topic of Congress is not one that everyone in the group was deeply familiar with when we began our project. As such it took a bit of effort to determine how best to use the API we were working with. We also met some difficulties with clashing expectations amongst our group and had to work to determine what our final goals were going to be. We also encountered some difficulties with GitHub properly reflecting the work that each team member had put in, and with everyone working on the project simultaneously we had to work through any merge conflicts that came up when merging everyone's contributions to the main repository.
 
 ## Future Plans
 What we can continue to develop and add to the website
