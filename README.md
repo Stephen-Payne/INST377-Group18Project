@@ -30,6 +30,8 @@ Our project is geared towards desktop browsers, but also allows mobile users the
 <li>API '/house/members' to GET list of House of Representatives members</li>
 <li>API '/senate/members' to GET list of Senates members</li>
 <li>API '/profile' to GET detail of each member by $memberID</li>
+<li>API '/profile/comment' to GET comments on a member's profile by $memberID</li>
+<li>API '/profile/comment' to POST comments on a member's profile by $memberID</li>
 <li>API '/memberBills' to GET sponsored bills of each member by $memberID </li>
 <h4>Road map for future development</h4>
 There is much more information offered from the API to continue to develop the website. What we can add are:
