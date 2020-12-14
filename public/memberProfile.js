@@ -2,7 +2,7 @@ function displayProfile(profile) {
   // display profile information
   const currentRole = profile.roles[0];// role is an array, we only take the first element to get the latest role
 
-  console.log(profile);
+  // console.log(profile);
 
   let termsServed = ''
   for (let i = 0; i < profile.roles.length; i++) {
@@ -84,8 +84,9 @@ function displayProfile(profile) {
 }
 
 function displayComments(comments) {
+  console.log('displaying comments', comments)
   const commentList = document.querySelector('#commentList');
-  const items = comments.map((comment, index) => {
+  const items = comments.comments.map((comment, index) => {
     return `
         <a href="javascript:;" class="list-group-item list-group-item-action my-2 border">
             ${comment.comment}
@@ -102,7 +103,7 @@ function displayBills(bills) {
     const billListCtrl = document.querySelector('#billList');
     const items = bills.map((bill, index) => {
         
-        console.log(bill)
+        // console.log(bill)
 
         return `
             <!-- Button trigger modal -->
@@ -184,34 +185,21 @@ function displayBills(bills) {
 }
 
 function getComments(memberId) {
-
-
-  displayComments([
-    {
-      comment: 'This is a comment'
-    },
-    {
-      comment: 'This is a 2nd comment'
-    },
-    {
-      comment: 'This is a 3rd comment'
-    }
-  ]);
-
-  // fetch('/profile/comments?memberId=' + memberId, {
-  //     method: 'GET',
-  //     headers: {
-  //     'Content-Type': 'application/json'
-  //     }
-  // })
-  // .then((fromServer) => fromServer.json())
-  // .then((jsonFromServer) => { 
-  //     let comments = jsonFromServer;
-  //     displayComments(comments);
-  // })
-  // .catch((err) => {
-  //     console.log(err);
-  // });
+  fetch('/profile/comment?memberId=' + memberId, {
+      method: 'GET',
+      headers: {
+      'Content-Type': 'application/json'
+      }
+  })
+  .then((fromServer) => fromServer.json())
+  .then((jsonFromServer) => { 
+      let comments = jsonFromServer;
+      console.log('comments', comments)
+      displayComments(comments);
+  })
+  .catch((err) => {
+      console.log(err);
+  });
 }
 
 function postComment() {

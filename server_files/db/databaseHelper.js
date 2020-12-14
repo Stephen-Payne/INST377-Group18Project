@@ -10,9 +10,18 @@ export async function saveComment(memberId, comment) {
 }
 
 export async function getComments(memberId) {
-  let sql = `SELECT * FROM comments WHERE memberId=${"memberId"};`
-  let comments = []
-  let rows = await database.all(sql)
-  rows.forEach(row => { comments.push({ memberId: row.memberId, comment: row.text }) })
-  return rows
+  return new Promise(function (resolve, reject) {
+    let sql = `SELECT * FROM comments WHERE memberId="${memberId}";`
+    let comments = []
+    database.all(sql, [], (err, rows) => {
+      if (err) {
+        throw err
+      }
+      rows.forEach(row => { 
+        comments.push({ memberId: row.memberId, comment: row.text }) 
+        console.log(row)
+      })
+      resolve(comments)
+    })
+  })
 }

@@ -94,11 +94,15 @@ app.route('/profile')
     //res.json(countries);
   });
 
+
+
 app.route('/profile/comment')
   .get(async(req, res) => {
     const memberId = req.query.memberId
     // get comments from database
-    comments = getComments(memberId)
+    console.log(`GET ME THE COMMENTS FRO ${memberId}`)
+    let comments = await getComments(memberId)
+    console.log(comments)
     res.json({
       comments: comments
     })
