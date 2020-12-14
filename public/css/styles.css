@@ -233,3 +233,9 @@ body {
     font-size: 0.75rem;
   }
 }
+
+@media (max-width: 600px) {
+  #sideNav.navbar {
+    padding: 0.5rem 1rem;
+  }
+}
