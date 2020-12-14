@@ -3,7 +3,7 @@
 Our project uses data from Probublica's API on Congress members to help users learn about what goes on in Congress. We have created a site where users can search and filter to find information on Congress members and their activities. This project provides one easy to access location for people to learn about US Congress members.
 
 # [Heroku App](https://inst377group18projectapp.herokuapp.com/)
-
+# Target browser
 Our project is geared towards desktop browsers, but also allows mobile users the same functionalities, as long as the user has access to a web browser.
 
 ---
@@ -30,7 +30,7 @@ Our project is geared towards desktop browsers, but also allows mobile users the
 <li>API '/house/members' to GET list of House of Representatives members</li>
 <li>API '/senate/members' to GET list of Senates members</li>
 <li>API '/profile' to GET detail of each member by $memberID</li>
-<li>API ''/memberBills' to GET sponsored bills of each member by $memberID </li>
+<li>API '/memberBills' to GET sponsored bills of each member by $memberID </li>
 <h4>Road map for future development</h4>
 There are much more information offered from the API to continue to develop the website. What we can add are:
   <ul>
