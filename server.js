@@ -5,6 +5,19 @@ import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 
+import { database } from './server_files/db/database.js';
+
+// database.serialize(() => {
+//   database.each(`SELECT PlaylistId as id,
+//                   Name as name
+//            FROM playlists`, (err, row) => {
+//     if (err) {
+//       console.error(err.message);
+//     } 
+//     console.log(row.id + "\t" + row.name);
+//   });
+// });
+
 dotenv.config();
 
 const app = express();
@@ -89,6 +102,23 @@ app.route('/profile')
     //console.log('Form data in res.body', req.body);
     //res.json(countries);
   });
+
+app.route('/profile/comment')
+  .get(async(req, res) => {
+    const memberId = req.query.memberId
+    // get comments from database
+    comments = databaseHelper.getComments(memberId)
+    res.json({
+      comments: comments
+    })
+  })
+  .post(async(req, res) => {
+    const memberId = req.body.memberId
+    const commentText = req.body.commentText
+    // save comment to database
+    databaseHelper.saveComment(memberId, commentText)
+    res.json({})
+  })
 
 app.route('/memberBills')
   .get(async(req, res) => {
