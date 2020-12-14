@@ -2,18 +2,17 @@
 
 import { database } from './database.js'
 
-async function saveComment(memberId, comment) {
+export async function saveComment(memberId, comment) {
+  console.log(memberId, comment)
   let sql = `INSERT INTO comments(name, text, memberId) VALUES ("", ${comment}, ${memberId})`
   await database.run(sql)
   return
 }
 
-async function getComments(memberId) {
-  let sql = `SELECT * FROM comments WHERE member=${"memberId"};`
+export async function getComments(memberId) {
+  let sql = `SELECT * FROM comments WHERE memberId=${"memberId"};`
   let comments = []
   let rows = await database.all(sql)
-  rows.forEach(row => { comments.push({ text: row.text }) })
+  rows.forEach(row => { comments.push({ memberId: row.memberId, comment: row.text }) })
   return rows
 }
-
-module.exports = { saveComment, getComments }

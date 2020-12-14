@@ -83,6 +83,18 @@ function displayProfile(profile) {
   twitter.href = `https://twitter.com/${profile.twitter_account}`
 }
 
+function displayComments(comments) {
+  const commentList = document.querySelector('#commentList');
+  const items = comments.map((comment, index) => {
+    return `
+        <a href="javascript:;" class="list-group-item list-group-item-action my-2 border">
+            ${comment.comment}
+        </a>
+    `
+  })
+  commentList.innerHTML = items.join('');
+}
+
 function displayBills(bills) {
     const billCountCtrl = document.querySelector('#billCount');
     billCountCtrl.innerHTML = bills.length;
@@ -171,6 +183,58 @@ function displayBills(bills) {
     $('.collapse').collapse();
 }
 
+function getComments(memberId) {
+
+
+  displayComments([
+    {
+      comment: 'This is a comment'
+    },
+    {
+      comment: 'This is a 2nd comment'
+    },
+    {
+      comment: 'This is a 3rd comment'
+    }
+  ]);
+
+  // fetch('/profile/comments?memberId=' + memberId, {
+  //     method: 'GET',
+  //     headers: {
+  //     'Content-Type': 'application/json'
+  //     }
+  // })
+  // .then((fromServer) => fromServer.json())
+  // .then((jsonFromServer) => { 
+  //     let comments = jsonFromServer;
+  //     displayComments(comments);
+  // })
+  // .catch((err) => {
+  //     console.log(err);
+  // });
+}
+
+function postComment() {
+  const commentArea = document.getElementById('commentArea')
+  const memberId = url.searchParams.get("memberId");
+  const comment = commentArea.value
+
+  const body = {
+    memberId: memberId,
+    comment: comment
+  }
+
+  console.log(body)
+
+  fetch('/profile/comment', {
+      method: 'POST',
+      body: body
+  })
+  .catch((err) => {
+      console.log(err);
+  });
+}
+
 function getBills(memberId) {
     // call profile API in server.js
     fetch('/memberBills?memberId=' + memberId, {
@@ -199,6 +263,10 @@ const memberId = url.searchParams.get("memberId");
 
 let memberProfile = {};
 
+// add event listener for adding comments
+const submitCommentButton = document.getElementById('postComment')
+submitCommentButton.onclick = postComment;
+
 // call profile API in server.js
 fetch('/profile?memberId=' + memberId, {
     method: 'GET',
@@ -215,6 +283,7 @@ fetch('/profile?memberId=' + memberId, {
     console.log("memberProfile=", memberProfile);
     displayProfile(memberProfile);
     getBills(memberId);
+    getComments(memberId);
   })
   .catch((err) => {
     console.log(err);

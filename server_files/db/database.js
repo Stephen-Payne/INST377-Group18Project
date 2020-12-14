@@ -1,16 +1,9 @@
+// Create a database from pre-existing db file, has already been populated with create_database script
+
 import sqlite3 from 'sqlite3'
 
-let db
-
 function startDatabase() {
-  db = new sqlite3.Database('./server_files/db/database.db')
-  createTables()
-  return db
-}
-
-
-function populateTables() {
-
+  return new sqlite3.Database('./server_files/db/database.db')
 }
 
 export const database = startDatabase()

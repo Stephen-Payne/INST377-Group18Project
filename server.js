@@ -4,19 +4,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import bodyParser from 'body-parser';
 
 import { database } from './server_files/db/database.js';
-
-// database.serialize(() => {
-//   database.each(`SELECT PlaylistId as id,
-//                   Name as name
-//            FROM playlists`, (err, row) => {
-//     if (err) {
-//       console.error(err.message);
-//     } 
-//     console.log(row.id + "\t" + row.name);
-//   });
-// });
+import { saveComment, getComments } from './server_files/db/databaseHelper.js'
 
 dotenv.config();
 
@@ -24,7 +15,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
@@ -107,17 +98,19 @@ app.route('/profile/comment')
   .get(async(req, res) => {
     const memberId = req.query.memberId
     // get comments from database
-    comments = databaseHelper.getComments(memberId)
+    comments = getComments(memberId)
     res.json({
       comments: comments
     })
   })
   .post(async(req, res) => {
+    console.log(req)
+    console.log(req.body)
     const memberId = req.body.memberId
-    const commentText = req.body.commentText
+    const comment = req.body.comment
     // save comment to database
-    databaseHelper.saveComment(memberId, commentText)
-    res.json({})
+    saveComment(memberId, comment)
+    // res.json({})
   })
 
 app.route('/memberBills')
