@@ -45,7 +45,9 @@ The main technological library we used was Bootstrap. This provided a framework 
 
 ## Future Plans
 What we can continue to develop and add to the website
--History of bills
--History of votes by Congress member
--Satus of current bills
--Status of congressional proceedings
+<ul>
+  <li>History of bills</li>
+  <li>History of votes by Congress member</li>
+  <li>Status of current bills</li>
+  <li>Status of congressional proceedings</li>
+</ul>
