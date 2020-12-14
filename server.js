@@ -15,7 +15,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
@@ -104,7 +104,6 @@ app.route('/profile/comment')
     })
   })
   .post(async(req, res) => {
-    console.log(req)
     console.log(req.body)
     const memberId = req.body.memberId
     const comment = req.body.comment

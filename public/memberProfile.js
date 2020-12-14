@@ -228,7 +228,10 @@ function postComment() {
 
   fetch('/profile/comment', {
       method: 'POST',
-      body: body
+      headers: {
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
   })
   .catch((err) => {
       console.log(err);

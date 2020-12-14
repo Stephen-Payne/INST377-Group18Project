@@ -4,7 +4,7 @@ import { database } from './database.js'
 
 export async function saveComment(memberId, comment) {
   console.log(memberId, comment)
-  let sql = `INSERT INTO comments(name, text, memberId) VALUES ("", ${comment}, ${memberId})`
+  let sql = `INSERT INTO comments(name, text, memberId) VALUES ("", "${comment}", "${memberId}")`
   await database.run(sql)
   return
 }
