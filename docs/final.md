@@ -29,11 +29,11 @@ The data we have chosen to work with for this project comes from [ProPublica's C
 
 ## Solutions
 
-
+Our solutions to the information problems mentioned include a number of features seen in our site. We created a single site where users can go to find information on Congress members thanks to the API. In order to make finding certain Congress members easier, we implemented a search page to allow for searching for specific Congress members. This search functionality also includes filters that can be used to narrow down the search to make the number of results less overwhelming. We also developed an info card for each Congress member, showing some information about them and what bills they have supported.
 
 ## Technical Systems
 
-
+The main technological library we used was Bootstrap. This provided a framework for our CSS to make designing the website easier and more responsive. The framework also allowed us to be more organized, and provided some icons we were able to use for certain buttons. Bootstrap was also our choice due to the extensive documentation on Bootstrap, given its popularity. Finally, we also chose it due to some team members already having some familiarity with it. We also used Jquery to make working with Javascript easier, and many of us had worked with it before.
 
 ## Addressing the Problem
 
