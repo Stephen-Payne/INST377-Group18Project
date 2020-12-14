@@ -36,6 +36,11 @@ Our solutions to the information problems mentioned include a number of features
 The main technological library we used was Bootstrap. This provided a framework for our CSS to make designing the website easier and more responsive. The framework also allowed us to be more organized, and provided some icons we were able to use for certain buttons. Bootstrap was also our choice due to the extensive documentation on Bootstrap, given its popularity. Finally, we also chose it due to some team members already having some familiarity with it. We also used Jquery to make working with Javascript easier, and many of us had worked with it before.
 
 ## Addressing the Problem
+<ol>
+  <li>Users may find it hard to look up information of Congress member. So we are creating a site with Congress members all in one place. We briefly introduce about the US Congress member on Home page. We also build a look up members by state code so that users can quickly find their states' representatives.</li>
+  <li>Users may find it hard to find specific Congress members. Our solution is to create search functionality with filtering by name, by chambers, by party, and by states.</li>
+  <li>We think that it would be helpful to see Congress members' works. Therefore, for each member, we create a member card which displays their information and details of sponsored bills</li>
+ </ol>
 
 
 
