@@ -37,9 +37,9 @@ The main technological library we used was Bootstrap. This provided a framework 
 
 ## Addressing the Problem
 <ol>
-  <li>Users may find it hard to look up information of Congress member. So we are creating a site with Congress members all in one place. We briefly introduce about the US Congress member on Home page. We also build a look up members by state code so that users can quickly find their states' representatives.</li>
+  <li>Users may find it hard to look up information for Congress members. So we have created a site with information on Congress members all in one place. We briefly introduce how our site handles US Congress members on the Home page. We also built a "look up members by state code" function so that users can quickly find their states' representatives.</li>
   <li>Users may find it hard to find specific Congress members. Our solution is to create search functionality with filtering by name, by chambers, by party, and by states.</li>
-  <li>We think that it would be helpful to see Congress members' works. Therefore, for each member, we create a member card which displays their information and details of sponsored bills</li>
+  <li>We think that it would be helpful to see Congress members' works. Therefore, for each member, we create a member card which displays their information and details of sponsored bills.</li>
  </ol>
 
 
