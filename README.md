@@ -32,7 +32,7 @@ Our project is geared towards desktop browsers, but also allows mobile users the
 <li>API '/profile' to GET detail of each member by $memberID</li>
 <li>API '/memberBills' to GET sponsored bills of each member by $memberID </li>
 <h4>Road map for future development</h4>
-There are much more information offered from the API to continue to develop the website. What we can add are:
+There is much more information offered from the API to continue to develop the website. What we can add are:
   <ul>
   <li>History of bills</li>
   <li>History of votes by COngress member</li>
