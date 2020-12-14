@@ -151,7 +151,13 @@ body {
   .carousel-item {
     flex-direction: row;
     justify-items: center;
+    height: 13rem;
   }
+
+  .carousel-item > img {
+    height: 13rem;
+  }
+
 }
 
 @media (min-width: 40em) {
