@@ -2,7 +2,7 @@ function displayProfile(profile) {
   // display profile information
   const currentRole = profile.roles[0];// role is an array, we only take the first element to get the latest role
 
-  console.log(profile);
+  // console.log(profile);
 
   let termsServed = ''
   for (let i = 0; i < profile.roles.length; i++) {
@@ -83,6 +83,19 @@ function displayProfile(profile) {
   twitter.href = `https://twitter.com/${profile.twitter_account}`
 }
 
+function displayComments(comments) {
+  console.log('displaying comments', comments)
+  const commentList = document.querySelector('#commentList');
+  const items = comments.comments.map((comment, index) => {
+    return `
+        <a href="javascript:;" class="list-group-item list-group-item-action my-2 border">
+            ${comment.comment}
+        </a>
+    `
+  })
+  commentList.innerHTML = items.join('');
+}
+
 function displayBills(bills) {
     const billCountCtrl = document.querySelector('#billCount');
     billCountCtrl.innerHTML = bills.length;
@@ -90,7 +103,7 @@ function displayBills(bills) {
     const billListCtrl = document.querySelector('#billList');
     const items = bills.map((bill, index) => {
         
-        console.log(bill)
+        // console.log(bill)
 
         return `
             <!-- Button trigger modal -->
@@ -171,6 +184,48 @@ function displayBills(bills) {
     $('.collapse').collapse();
 }
 
+function getComments(memberId) {
+  fetch('/profile/comment?memberId=' + memberId, {
+      method: 'GET',
+      headers: {
+      'Content-Type': 'application/json'
+      }
+  })
+  .then((fromServer) => fromServer.json())
+  .then((jsonFromServer) => { 
+      let comments = jsonFromServer;
+      console.log('comments', comments)
+      displayComments(comments);
+  })
+  .catch((err) => {
+      console.log(err);
+  });
+}
+
+function postComment() {
+  const commentArea = document.getElementById('commentArea')
+  const memberId = url.searchParams.get("memberId");
+  const comment = commentArea.value
+
+  const body = {
+    memberId: memberId,
+    comment: comment
+  }
+
+  console.log(body)
+
+  fetch('/profile/comment', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+  })
+  .catch((err) => {
+      console.log(err);
+  });
+}
+
 function getBills(memberId) {
     // call profile API in server.js
     fetch('/memberBills?memberId=' + memberId, {
@@ -199,6 +254,10 @@ const memberId = url.searchParams.get("memberId");
 
 let memberProfile = {};
 
+// add event listener for adding comments
+const submitCommentButton = document.getElementById('postComment')
+submitCommentButton.onclick = postComment;
+
 // call profile API in server.js
 fetch('/profile?memberId=' + memberId, {
     method: 'GET',
@@ -215,6 +274,7 @@ fetch('/profile?memberId=' + memberId, {
     console.log("memberProfile=", memberProfile);
     displayProfile(memberProfile);
     getBills(memberId);
+    getComments(memberId);
   })
   .catch((err) => {
     console.log(err);

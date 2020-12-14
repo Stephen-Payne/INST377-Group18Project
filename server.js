@@ -4,6 +4,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import bodyParser from 'body-parser';
+
+import { database } from './server_files/db/database.js';
+import { saveComment, getComments } from './server_files/db/databaseHelper.js'
 
 dotenv.config();
 
@@ -89,6 +93,28 @@ app.route('/profile')
     //console.log('Form data in res.body', req.body);
     //res.json(countries);
   });
+
+
+
+app.route('/profile/comment')
+  .get(async(req, res) => {
+    const memberId = req.query.memberId
+    // get comments from database
+    console.log(`GET ME THE COMMENTS FRO ${memberId}`)
+    let comments = await getComments(memberId)
+    console.log(comments)
+    res.json({
+      comments: comments
+    })
+  })
+  .post(async(req, res) => {
+    console.log(req.body)
+    const memberId = req.body.memberId
+    const comment = req.body.comment
+    // save comment to database
+    saveComment(memberId, comment)
+    // res.json({})
+  })
 
 app.route('/memberBills')
   .get(async(req, res) => {
