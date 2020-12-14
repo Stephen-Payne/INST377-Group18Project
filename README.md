@@ -33,10 +33,12 @@ Our project is geared towards desktop browsers, but also allows mobile users the
 <li>API ''/memberBills' to GET sponsored bills of each member by $memberID </li>
 <h4>Road map for future development</h4>
 <li>There are much more information offered from the API to continue to develop the website. What we can add are:
+  <ul>
   <li>History of bills</li>
   <li>History of votes by COngress member</li>
   <li>Status of current bills</li>
   <li>Status of cogressional proceedings</li>
+  </ul>
 </li>
 
 
