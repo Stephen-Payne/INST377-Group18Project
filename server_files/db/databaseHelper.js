@@ -11,7 +11,7 @@ export async function saveComment(memberId, comment) {
 
 export async function getComments(memberId) {
   return new Promise(function (resolve, reject) {
-    let sql = `SELECT * FROM comments WHERE memberId="${memberId}";`
+    let sql = `SELECT * FROM comments WHERE memberId="${memberId}" ORDER BY id DESC LIMIT 10;`
     let comments = []
     database.all(sql, [], (err, rows) => {
       if (err) {

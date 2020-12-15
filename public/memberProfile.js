@@ -224,6 +224,9 @@ function postComment() {
   .catch((err) => {
       console.log(err);
   });
+
+  // call get and display comments again to refresh
+  getComments(url.searchParams.get("memberId"))
 }
 
 function getBills(memberId) {
