@@ -37,7 +37,7 @@ Our project is geared towards desktop browsers, but also allows mobile users the
 There is much more information offered from the API to continue to develop the website. What we can add are:
   <ul>
   <li>History of bills</li>
-  <li>History of votes by COngress member</li>
+  <li>History of votes by Congress member</li>
   <li>Status of current bills</li>
   <li>Status of cogressional proceedings</li>
   </ul>
